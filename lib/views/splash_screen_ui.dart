@@ -1,16 +1,14 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:flutter_km_project/views/home01_ui.dart';
 
-class SplashScreenUi extends StatefulWidget {
-  const SplashScreenUi({super.key});
+class SplashScreenUI extends StatefulWidget {
+  const SplashScreenUI({super.key});
 
   @override
-  State<SplashScreenUi> createState() => _SplashScreenUiState();
+  State<SplashScreenUI> createState() => _SplashScreenUIState();
 }
 
-class _SplashScreenUiState extends State<SplashScreenUi> {
+class _SplashScreenUIState extends State<SplashScreenUI> {
   @override
   void initState() {
     Future.delayed(
@@ -18,9 +16,7 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
         seconds: 3,
       ),
       () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => Home01Ui()),
-      ),
+          context, MaterialPageRoute(builder: (context) => Home01UI())),
     );
     super.initState();
   }
@@ -28,41 +24,43 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              "assets/images/pic1.png",
-              width: (MediaQuery.of(context).size.width * 0.03),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-            ),
-            Text("Flutter KM APP",
+        backgroundColor: Colors.amber,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/pic01.png',
+                width: MediaQuery.of(context).size.width * 0.55,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.015,
+              ),
+              Text(
+                'Flutter KM Project',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
+                  color: Colors.white,
                   fontFamily: "Kanit",
-                )),
-            Text("แอปสำหรับทดสอบ",
+                ),
+              ),
+              Text(
+                'Version 1.0.0',
                 style: TextStyle(
+                  fontSize: 20,
                   color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
                   fontFamily: "Kanit",
-                )),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
-            ),
-            CircularProgressIndicator(
-              color: Colors.white,
-            )
-          ],
-        ),
-      ),
-    );
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.05,
+              ),
+              CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            ],
+          ),
+        ));
   }
 }
